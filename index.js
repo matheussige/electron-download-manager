@@ -83,11 +83,8 @@ function _registerListener(win, opts = {}) {
     win.webContents.session.on('will-download', listener);
 }
 
-const register = (opts = {}) => {
-
-    app.on('browser-window-created', (e, win) => {
-        _registerListener(win, opts);
-    });
+const register = (opts = {}, win) => {
+    _registerListener(win, opts);
 };
 
 const download = (options, callback) => {
